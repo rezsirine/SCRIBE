@@ -1,0 +1,54 @@
+{
+  "session_id": "session_20260515_141339",
+  "target_agent": "Acheteur",
+  "target_timestamp": 0,
+  "all_agents": [
+    "Acheteur",
+    "Mediateur"
+  ],
+  "real_action": "Je suis intéressé, mais je trouve le prix un peu élevé. Je propose 600€ pour le smartphone.",
+  "question": "Pourquoi Acheteur a pris cette decision a t=0 ?",
+  "text_explanation": "L'Acheteur a pris la décision de proposer 600€ pour le smartphone car il était intéressé par le produit, mais trouvait le prix initial trop élevé. Cette décision était motivée par l'objectif de trouver un équilibre entre son intérêt pour le produit et son budget. L'Acheteur a été influencé par le Mediateur, qui a probablement présenté les caractéristiques et les avantages du smartphone de manière à susciter l'intérêt de l'Acheteur. La décision de l'Acheteur a influencé le Mediateur, qui devra maintenant négocier avec le vendeur pour trouver un accord sur le prix. En considérant les alternatives, l'Acheteur aurait pu demander plus d'informations sur le produit, ce qui aurait pu lui donner une meilleure compréhension de sa valeur et lui permettre de prendre une décision plus éclairée, avec un score objectif de 8/10. Cependant, l'Acheteur a choisi de faire une offre pour montrer son intérêt et engager la négociation.",
+  "graph_path": "outputs/graphs/graph_session_20260515_141339.png",
+  "impact_score": 14.222,
+  "teleological": {
+    "summary": "La decision 'Je suis intéressé, mais je trouve le prix un peu élevé. Je p' etait equivalente aux alternatives en termes d'objectifs.",
+    "real_score": 5,
+    "avg_cf_score": 5.33,
+    "better_count": 2,
+    "worse_count": 1,
+    "cf_scores": [
+      0,
+      8,
+      8
+    ]
+  },
+  "mechanical": {
+    "summary": "La decision a influence differemment : Mediateur.",
+    "influenced_agents": [
+      "Mediateur"
+    ],
+    "influence_per_agent": {
+      "Mediateur": [
+        {
+          "alternative": "Refuser l'offre et quitter la négociation",
+          "reaction": "Le Mediateur aurait réagi avec surprise et déception en entendant l'Acheteur refuser l'offre et quitter la négociation. Il aurait probablement tenté de comprendre les raisons derrière cette décision e",
+          "cf_score": 0
+        },
+        {
+          "alternative": "Demander plus d'informations sur le produit",
+          "reaction": "Le Mediateur aurait réagi de manière neutre et informative, en fournissant les détails demandés sur le produit. Il aurait pu répondre quelque chose comme : \"Le smartphone en question est un modèle réc",
+          "cf_score": 8
+        },
+        {
+          "alternative": "Faire une contre-offre plus basse avec des conditions",
+          "reaction": "Mediateur aurait réagi de manière neutre et professionnelle, en notant la proposition de l'Acheteur et en demandant des clarifications sur les conditions associées à la contre-offre plus basse. Il aur",
+          "cf_score": 8
+        }
+      ]
+    }
+  },
+  "agents_influenced": [
+    "Mediateur"
+  ]
+}

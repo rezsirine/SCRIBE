@@ -1,0 +1,74 @@
+{
+  "session_id": "session_20260514_202318",
+  "target_agent": "Acheteur",
+  "target_timestamp": 0,
+  "all_agents": [
+    "Mediateur",
+    "Acheteur",
+    "Vendeur"
+  ],
+  "real_action": "Je suis intéressé, mais je trouve le prix un peu élevé. Je propose 600€ pour le smartphone.",
+  "question": "Pourquoi Acheteur a pris cette decision a t=0 ?",
+  "text_explanation": "L'Acheteur a pris la décision de proposer 600€ pour le smartphone car il était intéressé par l'achat, mais trouvait le prix initial trop élevé. Cette décision a été influencée par la présence du Mediateur, qui a pu jouer un rôle dans la négociation, et du Vendeur, qui a probablement fixé le prix initial. La décision de l'Acheteur a eu un impact sur ces deux agents, car le Mediateur devra maintenant gérer la contre-proposition, tandis que le Vendeur devra décider s'il accepte ou non la nouvelle offre. L'Acheteur a choisi cette option plutôt que de demander des spécifications supplémentaires sur le smartphone, qui aurait pu être une meilleure alternative avec un score objectif de 8/10. Cependant, l'Acheteur a préféré prendre une position plus directe dans la négociation en faisant une contre-proposition. Cette décision reflète les objectifs de l'Acheteur, qui cherche à acquérir le smartphone à un prix raisonnable.",
+  "graph_path": "outputs/graphs/graph_session_20260514_202318.png",
+  "impact_score": 8.0,
+  "teleological": {
+    "summary": "La decision 'Je suis intéressé, mais je trouve le prix un peu élevé. Je p' etait equivalente aux alternatives en termes d'objectifs.",
+    "real_score": 5,
+    "avg_cf_score": 6.0,
+    "better_count": 2,
+    "worse_count": 1,
+    "cf_scores": [
+      2,
+      8,
+      8
+    ]
+  },
+  "mechanical": {
+    "summary": "La decision a influence differemment : Mediateur, Vendeur.",
+    "influenced_agents": [
+      "Mediateur",
+      "Vendeur"
+    ],
+    "influence_per_agent": {
+      "Mediateur": [
+        {
+          "alternative": "Refuser l'offre et quitter la négociation",
+          "reaction": "Le Mediateur aurait probablement réagi avec surprise et déception en entendant que l'Acheteur refuse l'offre et quitte la négociation. Il aurait pu essayer de comprendre les raisons derrière cette déc",
+          "cf_score": 2
+        },
+        {
+          "alternative": "Demander des spécifications supplémentaires sur le smartphone",
+          "reaction": "Le Mediateur aurait réagi de manière neutre, en disant quelque chose comme : \"Très bien, je vais demander au Vendeur de fournir les spécifications supplémentaires sur le smartphone.\" Le Mediateur joue",
+          "cf_score": 8
+        },
+        {
+          "alternative": "Proposer un prix plus bas, par exemple 550€, pour tester la flexibilité du vendeur",
+          "reaction": "Le Mediateur aurait probablement réagi de manière neutre, en notant la proposition de l'Acheteur et en attendant la réponse du Vendeur. Il aurait pu dire quelque chose comme : \"L'Acheteur propose 550€",
+          "cf_score": 8
+        }
+      ],
+      "Vendeur": [
+        {
+          "alternative": "Refuser l'offre et quitter la négociation",
+          "reaction": "Le Vendeur aurait probablement été déçu et peut-être même frustré par la décision de l'Acheteur de quitter la négociation. Il aurait pu se sentir comme si tout son travail pour convaincre l'Acheteur a",
+          "cf_score": 2
+        },
+        {
+          "alternative": "Demander des spécifications supplémentaires sur le smartphone",
+          "reaction": "Le Vendeur aurait réagi en fournissant les spécifications supplémentaires demandées, par exemple : \"Le smartphone dispose d'un écran de 6,1 pouces, d'un processeur octa-core, de 4 Go de RAM et de 128 ",
+          "cf_score": 8
+        },
+        {
+          "alternative": "Proposer un prix plus bas, par exemple 550€, pour tester la flexibilité du vendeur",
+          "reaction": "Le Vendeur aurait probablement été surpris par la proposition de l'Acheteur, car 550€ est un prix plus bas que ce qu'il attendait. Il aurait pu réfléchir un instant avant de répondre, en pesant le pou",
+          "cf_score": 8
+        }
+      ]
+    }
+  },
+  "agents_influenced": [
+    "Mediateur",
+    "Vendeur"
+  ]
+}

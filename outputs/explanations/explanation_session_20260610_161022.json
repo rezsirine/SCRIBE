@@ -1,0 +1,94 @@
+{
+  "session_id": "session_20260610_161022",
+  "target_agent": "Acheteur",
+  "target_timestamp": 0,
+  "all_agents": [
+    "Mediateur",
+    "Expert",
+    "Acheteur",
+    "Concurrent"
+  ],
+  "real_action": "Je suis intéressé, mais 1000€ est un peu trop cher pour moi. Je propose 600€, est-ce que c'est négociable ?",
+  "question": "Pourquoi Acheteur a pris cette decision a t=0 ?",
+  "text_explanation": "L'Acheteur a pris la décision de proposer 600€ pour le produit car il était intéressé par celui-ci, mais considérait que le prix initial de 1000€ était trop élevé. Cette décision a été influencée par la présence du Mediateur, qui a pu jouer un rôle dans la fixation du prix initial, ainsi que par l'Expert, qui a pu fournir des informations sur la valeur du produit. De plus, la présence du Concurrent a pu pousser l'Acheteur à faire une offre compétitive pour obtenir le produit. Cependant, il est important de noter que l'Acheteur n'a pas considéré la meilleure alternative, qui aurait été de demander plus d'informations sur le produit avant de faire une offre, ce qui aurait pu lui donner une meilleure compréhension de la valeur du produit et lui permettre de faire une offre plus éclairée. Cette décision a donc eu un impact sur les autres agents, notamment le Mediateur, qui devra maintenant gérer la négociation en fonction de l'offre de l'Acheteur, et le Concurrent, qui devra décider s'il souhaite faire une contre-offre. En fin de compte, la décision de l'Acheteur a été guidée par son objectif de obtenir le produit à un prix raisonnable, mais il aurait peut-être été plus avantageux de prendre le temps de recueillir plus d'informations avant de faire une offre.",
+  "graph_path": "outputs/graphs/graph_session_20260610_161022.png",
+  "impact_score": 8.0,
+  "teleological": {
+    "summary": "La decision 'Je suis intéressé, mais 1000€ est un peu trop cher pour moi.' etait equivalente aux alternatives en termes d'objectifs.",
+    "real_score": 5,
+    "avg_cf_score": 6.0,
+    "better_count": 2,
+    "worse_count": 1,
+    "cf_scores": [
+      2,
+      8,
+      8
+    ]
+  },
+  "mechanical": {
+    "summary": "La decision a influence differemment : Mediateur, Expert, Concurrent.",
+    "influenced_agents": [
+      "Mediateur",
+      "Expert",
+      "Concurrent"
+    ],
+    "influence_per_agent": {
+      "Mediateur": [
+        {
+          "alternative": "Refuser l'offre et quitter les negociations",
+          "reaction": ": Le Mediateur aurait probablement réagi avec surprise et déception, car l'Acheteur refusait l'offre sans même essayer de négocier. Il aurait pu dire : \"Je comprends que le prix soit un peu élevé, mai",
+          "cf_score": 2
+        },
+        {
+          "alternative": "Demander plus d'informations sur le produit avant de faire une offre",
+          "reaction": "Le Mediateur aurait réagi de manière neutre, en disant quelque chose comme : \"Bien sûr, nous pouvons vous fournir plus d'informations sur le produit. Qu'est-ce que vous aimeriez savoir ?\" Il aurait ai",
+          "cf_score": 8
+        },
+        {
+          "alternative": "Faire une contre-offre plus proche du prix initial, par exemple 800€",
+          "reaction": "Le Mediateur aurait probablement réagi de manière neutre, en notant la proposition de 800€ et en demandant au vendeur si cela est acceptable. Il aurait pu dire : \"L'Acheteur propose 800€, est-ce que c",
+          "cf_score": 8
+        }
+      ],
+      "Expert": [
+        {
+          "alternative": "Refuser l'offre et quitter les negociations",
+          "reaction": ": L'Expert aurait probablement réagi de manière neutre, car il n'a pas d'intérêt personnel dans la transaction. Il aurait pu dire : \"Je comprends que l'Acheteur ait des réserves sur le prix. Je peux v",
+          "cf_score": 2
+        },
+        {
+          "alternative": "Demander plus d'informations sur le produit avant de faire une offre",
+          "reaction": "L'Expert aurait probablement réagi en fournissant des détails techniques et des spécifications sur le produit, en disant quelque chose comme : \"Le produit est équipé de [caractéristique 1], [caractéri",
+          "cf_score": 8
+        },
+        {
+          "alternative": "Faire une contre-offre plus proche du prix initial, par exemple 800€",
+          "reaction": "L'Expert aurait probablement analysé la proposition de 800€ et évalué si elle est raisonnable par rapport à la valeur réelle de l'objet. Il aurait pu dire : \"La proposition de 800€ est plus proche du ",
+          "cf_score": 8
+        }
+      ],
+      "Concurrent": [
+        {
+          "alternative": "Refuser l'offre et quitter les negociations",
+          "reaction": ": Le Concurrent aurait probablement réagi avec intérêt, car l'Acheteur refusait l'offre et quittait les négociations. Il aurait pu dire : \"Je suis prêt à faire une offre concurrente. Pouvez-vous me do",
+          "cf_score": 2
+        },
+        {
+          "alternative": "Demander plus d'informations sur le produit avant de faire une offre",
+          "reaction": "Le Concurrent aurait peut-être réagi en essayant de prendre l'avantage, en disant quelque chose comme : \"Nous avons un produit similaire qui offre [avantage 1], [avantage 2] et [avantage 3] à un prix ",
+          "cf_score": 8
+        },
+        {
+          "alternative": "Faire une contre-offre plus proche du prix initial, par exemple 800€",
+          "reaction": "Le Concurrent aurait probablement réagi en essayant de surenchérir sur la proposition de 800€, en disant par exemple : \"Je suis prêt à proposer 850€, je pense que c'est un prix raisonnable pour cet ob",
+          "cf_score": 8
+        }
+      ]
+    }
+  },
+  "agents_influenced": [
+    "Mediateur",
+    "Expert",
+    "Concurrent"
+  ]
+}

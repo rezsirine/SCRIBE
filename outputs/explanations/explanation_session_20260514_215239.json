@@ -1,0 +1,134 @@
+{
+  "session_id": "session_20260514_215239",
+  "target_agent": "Acheteur",
+  "target_timestamp": 0,
+  "all_agents": [
+    "Acheteur",
+    "Vendeur",
+    "Concurrent",
+    "Observateur",
+    "Expert",
+    "Mediateur"
+  ],
+  "real_action": "Je suis intéressé, mais votre prix est un peu élevé pour moi. Je pourrais aller jusqu'à 600€. Est-ce que vous êtes prêt à discuter du prix ?",
+  "question": "Pourquoi Acheteur a pris cette decision a t=0 ?",
+  "text_explanation": "L'Acheteur a pris la décision de proposer un prix de 600€ car il était intéressé par le produit, mais considérait le prix initial comme trop élevé. Cette décision a été influencée par la présence du Concurrent, qui pourrait offrir un prix plus compétitif, et par l'Observateur, qui pouvait évaluer la raisonnablement du prix proposé. L'Expert a également joué un rôle dans cette décision, car l'Acheteur a probablement pris en compte ses conseils pour déterminer une fourchette de prix acceptable. La décision de l'Acheteur a également eu un impact sur le Vendeur, qui devra maintenant considérer la possibilité de réduire son prix pour conclure la vente, et sur le Médiateur, qui pourrait être sollicité pour faciliter les négociations. Enfin, cette décision a été prise en considérant que demander des informations supplémentaires sur le produit aurait pu être une meilleure alternative, mais l'Acheteur a choisi de faire une offre directe pour tester la réaction du Vendeur.",
+  "graph_path": "outputs/graphs/graph_session_20260514_215239.png",
+  "impact_score": 8.0,
+  "teleological": {
+    "summary": "La decision 'Je suis intéressé, mais votre prix est un peu élevé pour moi' etait equivalente aux alternatives en termes d'objectifs.",
+    "real_score": 5,
+    "avg_cf_score": 6.0,
+    "better_count": 2,
+    "worse_count": 1,
+    "cf_scores": [
+      2,
+      8,
+      8
+    ]
+  },
+  "mechanical": {
+    "summary": "La decision a influence differemment : Vendeur, Concurrent, Observateur, Expert, Mediateur.",
+    "influenced_agents": [
+      "Vendeur",
+      "Concurrent",
+      "Observateur",
+      "Expert",
+      "Mediateur"
+    ],
+    "influence_per_agent": {
+      "Vendeur": [
+        {
+          "alternative": "Refuser l'offre et quitter la négociation",
+          "reaction": "Le Vendeur aurait été déçu et surpris par la décision de l'Acheteur de refuser l'offre et de quitter la négociation. Il aurait probablement essayé de comprendre les raisons derrière cette décision et ",
+          "cf_score": 2
+        },
+        {
+          "alternative": "Demander des informations supplémentaires sur le produit avant de faire une offre",
+          "reaction": "Le Vendeur aurait probablement réagi de manière positive, car la demande d'informations supplémentaires sur le produit suggère que l'Acheteur est intéressé par l'achat. Le Vendeur aurait pu répondre e",
+          "cf_score": 8
+        },
+        {
+          "alternative": "Faire une offre plus basse, par exemple 550€, pour tester la marge de négociation du vendeur",
+          "reaction": "Le vendeur aurait probablement été surpris par l'offre basse de 550€, mais il aurait essayé de maintenir son calme et de ne pas montrer son désir de vendre à tout prix. Il aurait répondu quelque chose",
+          "cf_score": 8
+        }
+      ],
+      "Concurrent": [
+        {
+          "alternative": "Refuser l'offre et quitter la négociation",
+          "reaction": "Le Concurrent aurait été informé de la décision de l'Acheteur et aurait probablement vu une opportunité de prendre le relais et de proposer une offre concurrente. Il aurait pu contacter l'Acheteur pou",
+          "cf_score": 2
+        },
+        {
+          "alternative": "Demander des informations supplémentaires sur le produit avant de faire une offre",
+          "reaction": "Le Concurrent aurait peut-être observé la situation avec intérêt, en se demandant si l'Acheteur allait finalement faire une offre ou non. Le Concurrent aurait pu se préparer à intervenir dans la conve",
+          "cf_score": 8
+        },
+        {
+          "alternative": "Faire une offre plus basse, par exemple 550€, pour tester la marge de négociation du vendeur",
+          "reaction": "Le concurrent aurait observé la négociation avec intérêt, notant que l'acheteur est prêt à négocier agressivement. Il aurait pensé à lui-même : \"Si l'acheteur est prêt à offrir 550€, peut-être que je ",
+          "cf_score": 8
+        }
+      ],
+      "Observateur": [
+        {
+          "alternative": "Refuser l'offre et quitter la négociation",
+          "reaction": "L'Observateur aurait pris note de la décision de l'Acheteur et aurait probablement analysé les raisons derrière cette décision. Il aurait pu écrire un rapport détaillé sur les événements qui se sont d",
+          "cf_score": 2
+        },
+        {
+          "alternative": "Demander des informations supplémentaires sur le produit avant de faire une offre",
+          "reaction": "L'Observateur aurait probablement pris note de la demande d'informations supplémentaires de l'Acheteur, en analysant les motivations et les besoins de l'Acheteur. L'Observateur aurait pu utiliser ces ",
+          "cf_score": 8
+        },
+        {
+          "alternative": "Faire une offre plus basse, par exemple 550€, pour tester la marge de négociation du vendeur",
+          "reaction": "L'observateur aurait noté l'offre basse de l'acheteur et aurait pensé que cela pourrait être une stratégie pour tester la marge de négociation du vendeur. Il aurait également noté la réaction du vende",
+          "cf_score": 8
+        }
+      ],
+      "Expert": [
+        {
+          "alternative": "Refuser l'offre et quitter la négociation",
+          "reaction": "L'Expert aurait été consulté par le Vendeur ou le Concurrent pour obtenir des conseils sur la manière de procéder après la décision de l'Acheteur. Il aurait pu proposer des stratégies pour relancer la",
+          "cf_score": 2
+        },
+        {
+          "alternative": "Demander des informations supplémentaires sur le produit avant de faire une offre",
+          "reaction": "L'Expert aurait pu fournir des conseils et des informations supplémentaires sur le produit, en fonction de ses connaissances et de son expérience. L'Expert aurait pu aider l'Acheteur à prendre une déc",
+          "cf_score": 8
+        },
+        {
+          "alternative": "Faire une offre plus basse, par exemple 550€, pour tester la marge de négociation du vendeur",
+          "reaction": "L'expert aurait analysé l'offre de l'acheteur et aurait pensé que cela est une stratégie classique pour essayer de obtenir le meilleur prix possible. Il aurait également noté que le vendeur a répondu ",
+          "cf_score": 8
+        }
+      ],
+      "Mediateur": [
+        {
+          "alternative": "Refuser l'offre et quitter la négociation",
+          "reaction": "Le Mediateur aurait été informé de la décision de l'Acheteur et aurait probablement essayé de faciliter une discussion entre les parties pour trouver un compromis. Il aurait pu proposer des solutions ",
+          "cf_score": 2
+        },
+        {
+          "alternative": "Demander des informations supplémentaires sur le produit avant de faire une offre",
+          "reaction": "Le Mediateur aurait probablement observé la conversation avec attention, en s'assurant que les deux parties respectent les règles de la négociation. Le Mediateur aurait pu intervenir si nécessaire pou",
+          "cf_score": 8
+        },
+        {
+          "alternative": "Faire une offre plus basse, par exemple 550€, pour tester la marge de négociation du vendeur",
+          "reaction": "Le médiateur aurait observé la négociation et aurait pensé que les deux parties sont prêtes à négocier, mais qu'elles ont des objectifs différents. Il aurait réfléchi à la façon de faciliter la négoci",
+          "cf_score": 8
+        }
+      ]
+    }
+  },
+  "agents_influenced": [
+    "Vendeur",
+    "Concurrent",
+    "Observateur",
+    "Expert",
+    "Mediateur"
+  ]
+}

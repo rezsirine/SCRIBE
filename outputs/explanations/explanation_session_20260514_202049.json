@@ -1,0 +1,74 @@
+{
+  "session_id": "session_20260514_202049",
+  "target_agent": "Acheteur",
+  "target_timestamp": 0,
+  "all_agents": [
+    "Mediateur",
+    "Vendeur",
+    "Acheteur"
+  ],
+  "real_action": "Je suis intéressé, mais je trouve le prix un peu élevé. Je propose 600€ pour ce smartphone.",
+  "question": "Pourquoi Acheteur a pris cette decision a t=0 ?",
+  "text_explanation": "L'Acheteur a pris la décision de proposer 600€ pour le smartphone car il était intéressé par le produit, mais considérait le prix initial comme trop élevé. Cette décision a été influencée par la présence du Vendeur et du Médiateur, qui ont pu jouer un rôle dans la perception de l'Acheteur concernant la valeur du produit. Le Vendeur a probablement présenté les avantages et les caractéristiques du smartphone, ce qui a renforcé l'intérêt de l'Acheteur, tandis que le Médiateur a pu fournir des informations supplémentaires ou des conseils qui ont contribué à la prise de décision. La décision de l'Acheteur a également été guidée par l'objectif de trouver un équilibre entre son intérêt pour le produit et son budget, ce qui l'a conduit à proposer un prix inférieur à celui demandé. Cependant, il est important de noter que l'Acheteur aurait peut-être pu obtenir une meilleure offre en demandant plus d'informations sur le produit et ses caractéristiques, comme le suggère l'alternative avec un score objectif de 8/10. L'influence de cette décision sur les autres agents est notable, car le Vendeur devra maintenant considérer la proposition de l'Acheteur et décider s'il est prêt à accepter ou à négocier, tandis que le Médiateur devra évaluer la situation et déterminer si une intervention est nécessaire pour faciliter la négociation.",
+  "graph_path": "outputs/graphs/graph_session_20260514_202049.png",
+  "impact_score": 14.222,
+  "teleological": {
+    "summary": "La decision 'Je suis intéressé, mais je trouve le prix un peu élevé. Je p' etait equivalente aux alternatives en termes d'objectifs.",
+    "real_score": 5,
+    "avg_cf_score": 5.33,
+    "better_count": 2,
+    "worse_count": 1,
+    "cf_scores": [
+      0,
+      8,
+      8
+    ]
+  },
+  "mechanical": {
+    "summary": "La decision a influence differemment : Mediateur, Vendeur.",
+    "influenced_agents": [
+      "Mediateur",
+      "Vendeur"
+    ],
+    "influence_per_agent": {
+      "Mediateur": [
+        {
+          "alternative": "Refuser l'offre et quitter les negociations",
+          "reaction": "Le Mediateur aurait probablement réagi avec surprise et déception, car l'Acheteur aurait refusé l'offre sans donner de chance à la négociation. Il aurait peut-être essayé de comprendre les raisons der",
+          "cf_score": 0
+        },
+        {
+          "alternative": "Demander plus d'informations sur le produit et ses caractéristiques",
+          "reaction": "Le Mediateur aurait probablement réagi de manière neutre et professionnelle, en disant quelque chose comme : \"Très bien, je vais vous fournir plus d'informations sur le produit. Le Vendeur peut vous d",
+          "cf_score": 8
+        },
+        {
+          "alternative": "Proposer un prix plus bas avec une contrepartie",
+          "reaction": "Le Mediateur aurait probablement réagi de manière neutre, en encourageant l'Acheteur à préciser sa proposition et en demandant au Vendeur de considérer l'offre. Il aurait pu dire quelque chose comme :",
+          "cf_score": 8
+        }
+      ],
+      "Vendeur": [
+        {
+          "alternative": "Refuser l'offre et quitter les negociations",
+          "reaction": "Le Vendeur aurait probablement été déçu et frustré, car il aurait perdu une opportunité de vendre son smartphone. Il aurait peut-être essayé de convaincre l'Acheteur de reconsidérer son offre ou aurai",
+          "cf_score": 0
+        },
+        {
+          "alternative": "Demander plus d'informations sur le produit et ses caractéristiques",
+          "reaction": "Le Vendeur aurait probablement réagi de manière positive, en voyant l'intérêt de l'Acheteur pour le produit. Il aurait pu dire quelque chose comme : \"Oui, bien sûr ! Ce smartphone est équipé d'un proc",
+          "cf_score": 8
+        },
+        {
+          "alternative": "Proposer un prix plus bas avec une contrepartie",
+          "reaction": "Le Vendeur aurait probablement réagi avec une certaine curiosité, en cherchant à comprendre ce que l'Acheteur propose comme contrepartie. Il aurait pu dire quelque chose comme : \"Un prix plus bas avec",
+          "cf_score": 8
+        }
+      ]
+    }
+  },
+  "agents_influenced": [
+    "Vendeur",
+    "Mediateur"
+  ]
+}

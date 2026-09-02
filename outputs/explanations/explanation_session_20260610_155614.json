@@ -1,0 +1,74 @@
+{
+  "session_id": "session_20260610_155614",
+  "target_agent": "Acheteur",
+  "target_timestamp": 0,
+  "all_agents": [
+    "Acheteur",
+    "Expert",
+    "Mediateur"
+  ],
+  "real_action": "Je suis intéressé par le smartphone, mais 1000€ est un peu hors de ma portée. Je pourrais aller jusqu'à 700€, étant donné que c'est un produit neuf. Est-ce que vous seriez prêt à discuter du prix ?",
+  "question": "Pourquoi Acheteur a pris cette decision a t=0 ?",
+  "text_explanation": "L'Acheteur a pris la décision de proposer une offre inférieure au prix initial de 1000€ pour le smartphone car il considérait que ce prix était hors de sa portée. Cette décision a été influencée par les objectifs de l'Acheteur, qui visent à acquérir un produit neuf à un prix raisonnable. L'Expert et le Médiateur ont également joué un rôle dans cette décision, car l'Acheteur a probablement pris en compte leur éventuelle réaction à une offre inférieure. La présence de l'Expert a pu inciter l'Acheteur à être plus prudent dans sa proposition, tandis que le Médiateur a pu l'encourager à trouver un compromis. En proposant une offre de 700€, l'Acheteur a cherché à trouver un équilibre entre son désir d'acquérir le smartphone et sa contrainte budgétaire, tout en laissant la porte ouverte à une négociation avec l'Expert et le Médiateur. Cette décision a été considérée comme la meilleure option parmi les alternatives, avec un score objectif de 8/10, car elle permettait de maintenir une relation positive avec les autres agents tout en défendant les intérêts de l'Acheteur.",
+  "graph_path": "outputs/graphs/graph_session_20260610_155614.png",
+  "impact_score": 6.222,
+  "teleological": {
+    "summary": "La decision 'Je suis intéressé par le smartphone, mais 1000€ est un peu h' etait equivalente aux alternatives en termes d'objectifs.",
+    "real_score": 5,
+    "avg_cf_score": 5.33,
+    "better_count": 2,
+    "worse_count": 1,
+    "cf_scores": [
+      2,
+      6,
+      8
+    ]
+  },
+  "mechanical": {
+    "summary": "La decision a influence differemment : Expert, Mediateur.",
+    "influenced_agents": [
+      "Expert",
+      "Mediateur"
+    ],
+    "influence_per_agent": {
+      "Expert": [
+        {
+          "alternative": "Refuser l'offre et quitter la négociation",
+          "reaction": "L'Expert aurait probablement réagi avec surprise et déception en entendant l'Acheteur refuser l'offre et quitter la négociation. Il aurait pu essayer de comprendre les raisons derrière cette décision ",
+          "cf_score": 2
+        },
+        {
+          "alternative": "Demander des spécifications supplémentaires sur le smartphone",
+          "reaction": "L'Expert aurait réagi en fournissant des informations détaillées sur les spécifications du smartphone, telles que la marque, le modèle, la capacité de stockage, la taille de l'écran, la résolution de ",
+          "cf_score": 6
+        },
+        {
+          "alternative": "Proposer un échange ou un compromis",
+          "reaction": "L'Expert aurait probablement réagi en disant : \"Un échange ou un compromis, c'est intéressant. Qu'est-ce que vous avez en tête ? Avez-vous un produit à échanger ou une idée de compromis sur le prix ou",
+          "cf_score": 8
+        }
+      ],
+      "Mediateur": [
+        {
+          "alternative": "Refuser l'offre et quitter la négociation",
+          "reaction": "Le Mediateur aurait probablement tenté de calmer la situation et de trouver un moyen de relancer la négociation. Il aurait pu dire quelque chose comme : \"Attendez, ne partez pas tout de suite. Nous po",
+          "cf_score": 2
+        },
+        {
+          "alternative": "Demander des spécifications supplémentaires sur le smartphone",
+          "reaction": "Le Mediateur aurait réagi en confirmant que l'Expert a bien compris la demande de l'Acheteur et en invitant l'Expert à fournir les informations requises. Il aurait également pu demander à l'Acheteur s",
+          "cf_score": 6
+        },
+        {
+          "alternative": "Proposer un échange ou un compromis",
+          "reaction": "Le Mediateur aurait probablement réagi en disant : \"Intéressant, un échange ou un compromis. Avant de poursuivre, je voudrais clarifier les objectifs de chaque partie. Acheteur, pouvez-vous nous dire ",
+          "cf_score": 8
+        }
+      ]
+    }
+  },
+  "agents_influenced": [
+    "Expert",
+    "Mediateur"
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "session_id": "session_20260617_155834",
+  "target_agent": "Acheteur",
+  "target_timestamp": 0,
+  "all_agents": [
+    "Acheteur",
+    "Mediateur"
+  ],
+  "real_action": "Je suis intéressé par le smartphone, mais 1000€ est un peu trop cher pour moi. Je propose 650€, est-ce que c'est négociable ?",
+  "question": "Pourquoi Acheteur a pris cette decision a t=0 ?",
+  "text_explanation": "L'Acheteur a pris la décision de proposer 650€ pour le smartphone car il était motivé par l'envie d'acquérir le produit à un prix raisonnable, mais son manque d'informations sur les caractéristiques et les avantages du smartphone l'a empêché de prendre une décision plus éclairée. Cette décision a été influencée par la présence du Médiateur, qui a peut-être créé une pression pour conclure l'affaire rapidement. Cependant, cette décision a également influencé le Médiateur, qui pourrait maintenant être amené à négocier le prix ou à fournir des informations supplémentaires pour justifier le prix initial de 1000€. Une meilleure alternative aurait été de demander des informations supplémentaires sur le smartphone avant de faire une offre, ce qui aurait permis à l'Acheteur de prendre une décision plus informée et de mieux servir son objectif. La décision de l'Acheteur a donc été sous-optimale, avec un score objectif de 8/10 pour la meilleure alternative, indiquant qu'il y avait des choix plus judicieux possibles. En fin de compte, la décision de l'Acheteur a été déterminée par son désir d'acquérir le smartphone à un prix abordable, mais elle a été limitée par son manque de connaissances sur le produit.",
+  "graph_path": "outputs/graphs/graph_session_20260617_155834.png",
+  "impact_score": 0.889,
+  "teleological": {
+    "summary": "La decision 'Je suis intéressé par le smartphone, mais 1000€ est un peu t' etait sous-optimale — 3 alternatives auraient mieux servi l'objectif.",
+    "real_score": 5,
+    "avg_cf_score": 7.33,
+    "better_count": 3,
+    "worse_count": 0,
+    "cf_scores": [
+      6,
+      8,
+      8
+    ]
+  },
+  "mechanical": {
+    "summary": "La decision a influence differemment : Mediateur.",
+    "influenced_agents": [
+      "Mediateur"
+    ],
+    "influence_per_agent": {
+      "Mediateur": [
+        {
+          "alternative": "Refuser d'acheter le smartphone à cause du prix élevé",
+          "reaction": "Mediateur aurait réagi en essayant de comprendre les raisons derrière le refus d'acheter le smartphone. Il aurait probablement demandé des détails sur ce qui rend le prix élevé pour l'Acheteur, afin d",
+          "cf_score": 6
+        },
+        {
+          "alternative": "Demander des informations supplémentaires sur le smartphone avant de faire une offre",
+          "reaction": "Le Mediateur aurait réagi de manière neutre et informative, en fournissant les détails demandés sur le smartphone. Il aurait pu dire quelque chose comme : \"Bien sûr, je peux vous donner plus d'informa",
+          "cf_score": 8
+        },
+        {
+          "alternative": "Proposer un prix plus proche du prix initial, comme 850€, pour montrer ma bonne foi",
+          "reaction": "Le Mediateur aurait probablement réagi de manière neutre et professionnelle, en notant la proposition de 850€ et en la comparant au prix initial de 1000€. Il aurait pu dire quelque chose comme : \"Je v",
+          "cf_score": 8
+        }
+      ]
+    }
+  },
+  "agents_influenced": [
+    "Mediateur"
+  ]
+}
