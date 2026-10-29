@@ -1,0 +1,23 @@
+{
+  "SCRIBE": {
+    "CI": 0.323,
+    "VE": 0.2,
+    "CO": 0.077,
+    "global_score": 0.2,
+    "interpretation": "Explication peu fidele \u2014 confiance faible"
+  },
+  "Baseline_Textual": {
+    "CI": 0.283,
+    "VE": 0.9,
+    "CO": 0.0,
+    "global_score": 0.394,
+    "interpretation": "Explication peu fidele \u2014 confiance faible"
+  },
+  "Baseline_Temporal_t1": {
+    "CI": 0.266,
+    "VE": 0.4,
+    "CO": 0.154,
+    "global_score": 0.273,
+    "interpretation": "Explication peu fidele \u2014 confiance faible"
+  }
+}

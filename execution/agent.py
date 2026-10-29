@@ -1,7 +1,7 @@
 
-#Approche : Paradigme ReAct (Reason + Act)
+#Approche : paradigme ReAct (Reason + Act)
 # agent LLM autonome suivant le paradigme ReAct(Thought -> Action -> Observation)
-# Supporte N agents dans le meme systeme
+#supporte N agents dans le meme systeme
 
 
 import re
@@ -11,15 +11,7 @@ from config import GROQ_API_KEY, GROQ_MODEL, TEMPERATURE, MAX_TOKENS
 
 
 class Agent:
-    #     Agent LLM autonome suivant le paradigme ReAct
-    # Attributes:
-    #     name         : identifiant de l'agent (ex: "Vendeur", "Acheteur", "Mediateur")
-    #     role         : description du role
-    #     objective    : objectif dans le scenario
-    #     memory       : historique des echanges
-    #     react_trace  : trace structuree Thought/Action/Observation
- 
-
+    
     def __init__(self, name: str, role: str, objective: str):
         self.name        = name
         self.role        = role
@@ -27,12 +19,12 @@ class Agent:
         self.memory      = []
         self.react_trace = []
 
-        # Client Groq
+        #client Groq
         self.groq_client = Groq(api_key=GROQ_API_KEY)
         self.model_name  = GROQ_MODEL
         print(f"  Agent '{name}' initialise - modele : {self.model_name}")
 
-        # System prompt ReAct
+        #system prompt ReAct
         self.system_prompt = f"""
 Tu es {self.name}, un agent autonome dans un systeme multi-agents
 Ton role      : {self.role}
@@ -54,7 +46,7 @@ Important : reste dans ton role et travaille vers ton objectif.
 """
 
     def _call_llm(self, messages: list) -> str:
-     #Appelle Groq avec la liste de messages
+     #appelle Groq 
         groq_messages = []
         for msg in messages:
             if isinstance(msg, SystemMessage):
@@ -75,35 +67,25 @@ Important : reste dans ton role et travaille vers ton objectif.
     def step(self, incoming_message: str, timestamp: int,
              sender: str = "Systeme") -> dict:
         
-        # Effectue un pas de raisonnement ReAct
-
-        # Args:
-        #     incoming_message  message recu
-        #     timestamp        pas de temps courant
-        #     sender            nom de l'agent qui envoie le message
-
-        # Returns:
-        #     dict avec thought, action, observation
         
-        # Message contextualise avec le nom de l'expediteur
         contextualized = f"[Message de {sender}] : {incoming_message}"
         self.memory.append(HumanMessage(content=contextualized))
 
-        # Construire le prompt
+        # construire le prompt
         messages = [SystemMessage(content=self.system_prompt)] + self.memory
 
-        # Appel LLM
+        #appel LLM
         raw = self._call_llm(messages)
 
-        # Parser les balises ReAct
+        #parser les balises ReAct
         thought     = self._extract_tag(raw, "THOUGHT")
         action      = self._extract_tag(raw, "ACTION")
         observation = self._extract_tag(raw, "OBSERVATION")
 
-        # Sauvegarder en memoire
+        #sauvegarder en memoire
         self.memory.append(AIMessage(content=raw))
 
-        # Enregistrer dans la trace ReAct
+        #enregistrer dans la trace ReAct
         step_record = {
             "timestamp"  : timestamp,
             "agent"      : self.name,
@@ -118,7 +100,7 @@ Important : reste dans ton role et travaille vers ton objectif.
         return step_record
 
     def _extract_tag(self, text: str, tag: str) -> str:
-    #    Extrait le contenu entre [TAG] et le prochain tag
+    #extrait le contenu entre [TAG] et le prochain tag
         pattern = rf'\[{tag}\](.*?)(?=\[(?:THOUGHT|ACTION|OBSERVATION)\]|$)'
         match   = re.search(pattern, text, re.DOTALL | re.IGNORECASE)
         return match.group(1).strip() if match else text.strip()
@@ -134,6 +116,6 @@ Important : reste dans ton role et travaille vers ton objectif.
         }
 
     def reset(self):
-        # Remet l'agent a zero pour les simulations contrefactuelles
+        # remet l'agent a zero pour les simulations contrefactuelles
         self.memory      = []
         self.react_trace = []

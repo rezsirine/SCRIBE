@@ -1,25 +1,22 @@
-# GROQ : Backend LLM
-
-import os
+﻿import os
 from dotenv import load_dotenv
 
 load_dotenv()
 
-#  GROQ 
-GROQ_API_KEY = os.getenv("GROQ_API_KEY", "gsk_YOUR_KEY_HERE")
-GROQ_MODEL   = "llama-3.3-70b-versatile"
+GROQ_API_KEY     = os.getenv("GROQ_API_KEY", "KEY")
+GROQ_MODEL       = "openai/gpt-oss-120b"   
+GROQ_JUDGE_MODEL = "qwen/qwen3.8-27b"     
 
-#  PARAMÈTRES LLM 
-TEMPERATURE  = 0.3
-MAX_TOKENS   = 1000
+# hyperparamètres de génération LLM 
+TEMPERATURE  = 0.3    
+MAX_TOKENS   = 1000   
 
-#  PARAMÈTRES CEMA 
-K_ALTERNATIVES = 3    # nombre d'alternatives contrefactuelles par agent
-N_CONSISTENCY  = 3    # répétitions pour mesurer la cohérence interne
-MAX_TURNS      = 20   # tours max de dialogue entre agents
-#MAX_TURNS      = 20   
+# paramètres du moteur contrefactuel SCRIBE 
+K_ALTERNATIVES = 3   
+N_CONSISTENCY  = 3    
+MAX_TURNS      = 20   
 
-#  CHEMINS DE SORTIE 
+#répertoires de sauvegarde des résultats 
 OUTPUT_TRACES       = "outputs/traces/"
 OUTPUT_EXPLANATIONS = "outputs/explanations/"
 OUTPUT_GRAPHS       = "outputs/graphs/"

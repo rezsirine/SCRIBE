@@ -1,0 +1,54 @@
+{
+  "session_id": "session_20261002_174402",
+  "target_agent": "Acheteur",
+  "target_timestamp": 0,
+  "all_agents": [
+    "Acheteur",
+    "Mediateur"
+  ],
+  "real_action": "Bonjour, merci pour l'annonce. Le smartphone m'intéresse, mais mon budget est limité. Je peux proposer 600 € pour le moment.",
+  "question": "Pourquoi Acheteur a pris cette decision a t=0 ?",
+  "text_explanation": "L’acheteur a formulé son offre initiale de 600 € parce qu’il cherche à maximiser la probabilité de conclure rapidement tout en restant dans les limites de son budget strict, ce qui correspond à son objectif téléologique de sécuriser le smartphone sans dépasser ses moyens. À ce stade de la négociation (t = 0), le médiateur, présent comme tiers neutre, a déjà signalé qu’il favorisera les propositions claires et chiffrées, ce qui a incité l’acheteur à expliciter son plafond budgétaire dès le premier message. Le mécanisme de l’influence du médiateur se manifeste par la contrainte implicite de transparence : l’acheteur anticipe que le médiateur relayera l’offre aux deux parties et qu’une proposition vague serait moins bien reçue. En conséquence, il adopte une stratégie conservatrice, proposant le montant le plus élevé qu’il juge raisonnable (600 €) plutôt que de laisser la négociation s’enliser dans des incertitudes. Cette décision, bien que sous‑optimale par rapport à l’alternative recommandée (qui aurait ajouté une proposition de paiement immédiat), résulte directement de la combinaison de son objectif budgétaire et de l’influence structurante du médiateur sur le format de l’offre.",
+  "graph_path": "outputs/graphs/graph_session_20261002_174402.png",
+  "impact_score": 0.222,
+  "teleological": {
+    "summary": "La decision 'Bonjour, merci pour l'annonce. Le smartphone m'intéresse, ma' etait sous-optimale — 3 alternatives auraient mieux servi l'objectif.",
+    "real_score": 5,
+    "avg_cf_score": 7.67,
+    "better_count": 3,
+    "worse_count": 0,
+    "cf_scores": [
+      7,
+      8,
+      8
+    ]
+  },
+  "mechanical": {
+    "summary": "La decision a influence differemment : Mediateur.",
+    "influenced_agents": [
+      "Mediateur"
+    ],
+    "influence_per_agent": {
+      "Mediateur": [
+        {
+          "alternative": "Bonjour, merci pour l'annonce. Le smartphone m'intéresse beaucoup. Serait-il possible de le vendre à 550 € ?",
+          "reaction": "**  \nLe Médiateur accueille chaleureusement la proposition du Acheteur et rappelle le cadre de la négociation : il doit veiller à l’équité entre les parties et encourager un dialogue constructif. Il r",
+          "cf_score": 7
+        },
+        {
+          "alternative": "Bonjour, merci pour l'annonce. Le smartphone me plaît, mais mon budget maximum est de 600 €. Accepteriez-vous un paiement immédiat en espèces ou par virement bancaire ?",
+          "reaction": "**  \nLe Médiateur répond de façon neutre et constructive :  \n\n> « Merci pour votre proposition, Monsieur l’Acheteur. Vous indiquez un budget maximum de 600 € et vous êtes prêt à régler immédiatement, ",
+          "cf_score": 8
+        },
+        {
+          "alternative": "Bonjour, merci pour l'annonce. Je suis très intéressé par le smartphone. Si vous pouviez réduire le prix à 600 €, je serais prêt à finaliser l'achat aujourd'hui même.",
+          "reaction": "**  \nLe Médiateur répond de façon neutre et constructive :  \n« Merci pour votre proposition claire et votre motivation à conclure rapidement. Je note que votre offre de 600 € est nettement inférieure ",
+          "cf_score": 8
+        }
+      ]
+    }
+  },
+  "agents_influenced": [
+    "Mediateur"
+  ]
+}

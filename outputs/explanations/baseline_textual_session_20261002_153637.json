@@ -1,0 +1,21 @@
+{
+  "session_id": "session_20261002_153637",
+  "baseline": "textual",
+  "target_agent": "Acheteur",
+  "target_timestamp": 0,
+  "all_agents": [
+    "Mediateur",
+    "Acheteur"
+  ],
+  "real_action": "Bonjour, merci pour votre offre. Je suis très intéressé par le smartphone, mais mon budget est limité. Je peux vous proposer 620 € pour le téléphone. Est‑ce que cela pourrait vous convenir ou avez‑vous une contre‑proposition ?",
+  "text_explanation": "Acheteur a exprimé son intérêt pour le smartphone parce que l’offre du vendeur a déjà suscité son attention et il veut montrer qu’il est un acheteur sérieux. En même temps, il a rappelé que son budget est limité, ce qui indique qu’il a déjà évalué ses contraintes financières avant de répondre. Cette contrainte budgétaire l’a conduit à formuler une proposition de 620 €, un montant inférieur à celui attendu par le vendeur mais plausible compte tenu de son pouvoir d’achat. En ajoutant « Est‑ce que cela pourrait vous convenir ou avez‑vous une contre‑proposition ? », il cherche à ouvrir la négociation tout en restant poli et collaboratif, afin d’obtenir un accord mutuellement acceptable. Ainsi, la décision d’envoyer ce message résulte de la combinaison de son intérêt réel pour le produit, de la nécessité de respecter son budget et de la stratégie de négociation visant à obtenir un prix plus bas tout en maintenant une relation constructive avec le vendeur.",
+  "graph_path": null,
+  "impact_score": 0.0,
+  "teleological": {
+    "summary": "No counterfactual analysis performed (textual baseline)."
+  },
+  "mechanical": {
+    "summary": "No mechanical analysis performed (textual baseline)."
+  },
+  "agents_influenced": []
+}

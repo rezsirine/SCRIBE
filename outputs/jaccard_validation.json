@@ -1,0 +1,131 @@
+{
+  "total_pairs": 13,
+  "min": 0.15,
+  "max": 0.284,
+  "mean": 0.205,
+  "all_values": [
+    0.18,
+    0.238,
+    0.284,
+    0.22,
+    0.212,
+    0.172,
+    0.227,
+    0.15,
+    0.192,
+    0.202,
+    0.248,
+    0.167,
+    0.17
+  ],
+  "sessions": [
+    {
+      "session": "session_20260514_202049",
+      "target": "Acheteur",
+      "pairs": [
+        {
+          "agent": "Vendeur",
+          "jaccard": 0.18,
+          "influenced": true
+        },
+        {
+          "agent": "Mediateur",
+          "jaccard": 0.238,
+          "influenced": true
+        }
+      ]
+    },
+    {
+      "session": "session_20260514_202318",
+      "target": "Acheteur",
+      "pairs": [
+        {
+          "agent": "Vendeur",
+          "jaccard": 0.284,
+          "influenced": true
+        },
+        {
+          "agent": "Mediateur",
+          "jaccard": 0.22,
+          "influenced": true
+        }
+      ]
+    },
+    {
+      "session": "session_20260514_214932",
+      "target": "Acheteur",
+      "pairs": [
+        {
+          "agent": "Mediateur",
+          "jaccard": 0.212,
+          "influenced": true
+        }
+      ]
+    },
+    {
+      "session": "session_20260514_215239",
+      "target": "Acheteur",
+      "pairs": [
+        {
+          "agent": "Vendeur",
+          "jaccard": 0.172,
+          "influenced": true
+        },
+        {
+          "agent": "Mediateur",
+          "jaccard": 0.227,
+          "influenced": true
+        },
+        {
+          "agent": "Concurrent",
+          "jaccard": 0.15,
+          "influenced": true
+        },
+        {
+          "agent": "Expert",
+          "jaccard": 0.192,
+          "influenced": true
+        },
+        {
+          "agent": "Observateur",
+          "jaccard": 0.202,
+          "influenced": true
+        }
+      ]
+    },
+    {
+      "session": "session_20260515_141339",
+      "target": "Acheteur",
+      "pairs": [
+        {
+          "agent": "Mediateur",
+          "jaccard": 0.248,
+          "influenced": true
+        }
+      ]
+    },
+    {
+      "session": "session_20260610_155614",
+      "target": "Acheteur",
+      "pairs": [
+        {
+          "agent": "Expert",
+          "jaccard": 0.167,
+          "influenced": true
+        },
+        {
+          "agent": "Mediateur",
+          "jaccard": 0.17,
+          "influenced": true
+        }
+      ]
+    }
+  ],
+  "threshold_analysis": {
+    "0.25": 12,
+    "0.28": 12,
+    "0.3": 13,
+    "0.4": 13,
+    "0.5": 13
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "session_id": "session_20261029_193840",
+  "target_agent": "Acheteur",
+  "target_timestamp": 0,
+  "all_agents": [
+    "Acheteur",
+    "Mediateur"
+  ],
+  "real_action": "Bonjour, merci pour votre offre. Le smartphone m'intéresse beaucoup, mais mon budget est limité. Je peux proposer 650 € pour le modèle neuf. Si vous pouvez vous rapprocher de ce prix, je suis prêt à finaliser la transaction immédiatement.",
+  "question": "Pourquoi Acheteur a pris cette decision a t=0 ?",
+  "text_explanation": "L’acheteur a formulé cette offre dès le premier tour (t = 0) parce qu’il cherche à maximiser la probabilité de conclure rapidement la vente tout en respectant son budget limité ; ainsi, son objectif de « finaliser immédiatement » est téléologiqueement équivalent à toutes les alternatives qui satisferaient le même critère de rentabilité.  \nLe médiateur, présent dans la négociation, exerce une influence mécanique : il signale aux parties que le dialogue doit rester constructif et que des concessions modérées sont attendues, ce qui pousse l’acheteur à proposer un prix réaliste (650 €) plutôt qu’une demande irréaliste.  \nEn anticipant que le vendeur pourrait accepter une légère réduction, l’acheteur utilise la stratégie de « prix d’ancrage» pour créer une zone de compromis favorable.  \nCette proposition sert également à tester la réceptivité du vendeur, tout en montrant au médiateur que l’acheteur est prêt à coopérer, ce qui renforce la dynamique collaborative de la négociation.  \nPar conséquent, la décision de l’acheteur découle d’une combinaison d’objectifs personnels (budget et rapidité) et de l’influence du médiateur qui oriente le processus vers une offre intermédiaire susceptible d’être acceptée.",
+  "graph_path": "outputs/graphs/graph_session_20261029_193840.png",
+  "impact_score": 10.889,
+  "teleological": {
+    "summary": "La decision 'Bonjour, merci pour votre offre. Le smartphone m'intéresse b' etait equivalente aux alternatives en termes d'objectifs.",
+    "real_score": 5,
+    "avg_cf_score": 4.33,
+    "better_count": 1,
+    "worse_count": 1,
+    "cf_scores": [
+      8,
+      5,
+      0
+    ]
+  },
+  "mechanical": {
+    "summary": "La decision a influence differemment : Mediateur.",
+    "influenced_agents": [
+      "Mediateur"
+    ],
+    "influence_per_agent": {
+      "Mediateur": [
+        {
+          "alternative": "Demander une remise supplémentaire en échange d'un paiement immédiat, par exemple : « Seriez‑vous prêt à me faire 630 € si je règle la somme dès maintenant ? »",
+          "reaction": "**  \nLe Médiateur répond de façon neutre et constructive :  \n> « Je comprends votre volonté d’obtenir une remise supplémentaire en échange d’un paiement immédiat, Monsieur l’Acheteur. Cette propositio",
+          "cf_score": 8
+        },
+        {
+          "alternative": "Suggérer un échange partiel d’accessoires ou de services, par exemple : « Si vous ajoutez une coque de protection et un chargeur rapide, je peux accepter 660 € ».",
+          "reaction": "**  \nLe Médiateur remercie l’Acheteur pour sa proposition créative : il souligne que l’ajout d’une coque de protection et d’un chargeur rapide augmente la valeur perçue du lot, mais il rappelle que le",
+          "cf_score": 5
+        },
+        {
+          "alternative": "Poser des questions sur la marge de négociation du vendeur, comme : « Quel est le prix le plus bas que vous seriez disposé à accepter pour ce modèle ? »",
+          "reaction": "**  \nLe Médiateur note que l’Acheteur a choisi de **poser une question ouverte** plutôt que de faire immédiatement une offre chiffrée. Il répond de façon neutre et encourageante :  \n\n> « Merci pour ce",
+          "cf_score": 0
+        }
+      ]
+    }
+  },
+  "agents_influenced": [
+    "Mediateur"
+  ]
+}

@@ -1,8 +1,8 @@
 
-#4.Approche : Dual-Dimension Causal Analysis
-# Deux dimensions (comme CEMA) 
-#    Teleologique  : (Est-ce que l'alternative aurait mieux servi le but de l'agent ?). (objectifs atteints)
-#    Mecanique     : qui a influence qui (tous les agents)
+#dual-dimension causal analysis
+# deux dimensions (comme CEMA) 
+#teleologique  
+#mecanique     
 
 
 import re
@@ -11,7 +11,7 @@ from config import GROQ_API_KEY, GROQ_MODEL
 
 class CauseIdentifier:
     def __init__(self):
-        # Client Groq pour noter l'action reelle avec le meme rubric que les alternatives
+        #client Groq pour noter l'action reelle
         self.client = Groq(api_key=GROQ_API_KEY)
         self.model_name = GROQ_MODEL
 
@@ -43,23 +43,14 @@ Reponds UNIQUEMENT avec :
         )
         raw = response.choices[0].message.content
         numbers = re.findall(r'\b(10|[0-9])\b', raw)
-        return int(numbers[0]) if numbers else 5  # 5 seulement en fallback d'erreur
+        return int(numbers[0]) if numbers else 5  
 
-    # Compare la trace reelle avec les CF(ai) pour identifier
-    # les causes et les influences entre les N agents
+    #compare la trace reelle avec les CF(ai) pour identifier les causes et les influences entre les N agents
 
 
     def identify(self, context: dict, cf_traces: list) -> dict:
       
-        # Identifie les causes et influences.
-
-        # Args:
-        #     context   : contexte C(t0)
-        #     cf_traces : liste des CF(ai) simules
-
-        # Returns:
-        #     dict des causes identifiees
-    
+        #identifie les causes et influences
         real_action  = context["real_action"]
         other_agents = context["other_agents"]
 
@@ -85,11 +76,8 @@ Reponds UNIQUEMENT avec :
 
     def _analyze_teleological(self, real_action: str, cf_traces: list, context: dict = None) -> dict:
 
-        # Dimension teleologique : compare les objectifs atteints
+        #dimension teleologique : compare les objectifs atteints
         # entre la trace reelle et les traces contrefactuelles  
-        
-        # CORRECTIF : le score reel est maintenant note par le LLM,
-        # au lieu d'etre fixe a 5 par defaut
         real_score = self._score_real_action(context) if context else 5
 
         cf_scores  = [cf["objective_score"] for cf in cf_traces]
@@ -120,9 +108,8 @@ Reponds UNIQUEMENT avec :
     def _analyze_mechanical(self, real_action: str,
                             cf_traces: list, other_agents: list) -> dict:
 
-        # Dimension mecanique : identifie comment la decision a influence
+        #dimension mecanique:identifie comment la decision a influence
         # le comportement de chaque autre agent
-
         influence_per_agent = {}
 
         for agent in other_agents:
@@ -137,7 +124,6 @@ Reponds UNIQUEMENT avec :
                     })
             influence_per_agent[agent] = reactions
 
-        # Agents qui auraient eu une reaction differente
         influenced = [
             ag for ag, reactions in influence_per_agent.items()
             if len(reactions) > 0
@@ -175,9 +161,9 @@ Reponds UNIQUEMENT avec :
                 if cf.get("reactions", {}).get(agent, "")
             ]
             if len(reactions) < 2:
-                continue  # pas assez de donnees pour mesurer une variation
+                continue  
 
-            # Similarite de Jaccard entre chaque paire de reactions
+#similarite de Jaccard entre chaque paire de reactions
             def tokenize(t):
                 return set(re.findall(r'\b\w+\b', t.lower()))
 
@@ -191,9 +177,7 @@ Reponds UNIQUEMENT avec :
 
             avg_similarity = sum(sims) / len(sims) if sims else 1.0
 
-            # Si les reactions sont tres similaires d'une alternative a l'autre
-            # (agent dit "la meme chose" quoi qu'il arrive), il n'est PAS influence
-            # Seuil : similarite < 0.5 => reactions suffisamment differentes => influence reelle
+#si les reactions sont tres similaires d'une alternative a l'autre
             if avg_similarity < 0.5:
                 influenced.append(agent)
 
@@ -211,8 +195,7 @@ Reponds UNIQUEMENT avec :
 
     def _impact_score(self, cf_traces: list) -> float:
 
-        # Variance des scores objectifs — mesure l'importance de la decision
-
+#variance des scores objectifs 
         if len(cf_traces) < 2:
             return 0.0
         scores   = [cf["objective_score"] for cf in cf_traces]

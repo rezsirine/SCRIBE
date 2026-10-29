@@ -1,9 +1,14 @@
 
 import os
+import sys
 import json
 from datetime import datetime
 
-# Importations ieca
+# Force l'encodage UTF-8 sur la console Windows pour afficher correctement
+# les caractères générés par le LLM (tirets insécables, guillemets, etc.)
+if hasattr(sys.stdout, 'reconfigure'):
+    sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+
 from execution.agent import Agent
 from execution.masRunner import MASRunner
 from execution.traceLogger import TraceLogger
@@ -19,15 +24,12 @@ from evaluation.metrics import FidelityMetrics
 
 from config import OUTPUT_EXPLANATIONS, OUTPUT_TRACES, OUTPUT_GRAPHS
 
-# Création des dossiers de sortie
 for folder in [OUTPUT_TRACES, OUTPUT_EXPLANATIONS, OUTPUT_GRAPHS]:
     os.makedirs(folder, exist_ok=True)
 
 def run_phase1() -> tuple[str, dict]:
-    # Phase 1 : Exécution réelle de la négociation
-    print("  PHASE 1 : EXÉCUTION RÉELLE DU MAS")
+    # exécution réelle de la négociation
 
-    # Scénario : Vendeur (A), Acheteur (B), Médiateur (C)
     agent_a = Agent(
         name="Vendeur",
         role="Vendeur d'un smartphone haut de gamme",
@@ -59,7 +61,7 @@ def run_phase1() -> tuple[str, dict]:
         objective="Analyser les tendances de prix et donner des conseils sur le moment opportun pour conclure la vente."
     )
 
-    # Initialiser le runner avec la liste de 6 agents
+  
     runner = MASRunner(agents=[agent_a, agent_b, agent_c, agent_d, agent_e, agent_f], scenario="S2_smartphone_6agents")
     
     trace_path = runner.run(
@@ -70,37 +72,35 @@ def run_phase1() -> tuple[str, dict]:
     return trace_path, trace
 
 def run_phase2(trace: dict) -> tuple[dict, dict, list, dict]:
-    # Phase 2 : Génération de l'explication CEMA
-    print("  PHASE 2 : GÉNÉRATION DE L'EXPLICATION")
+    # génération de l'explication CEMA
 
-    # On cible la première décision de l'acheteur (souvent à t=1 dans un round-robin [0,1,2])
+    # cible la première décision de l'acheteur 
     target_agent = "Acheteur"
     target_timestamp = 1
 
-    # Trouver le premier pas de l'acheteur dans la trace
+    #premier pas de l'acheteur dans la trace
     buyer_steps = [s for s in trace["steps"] if s["agent"] == target_agent]
     if buyer_steps:
         target_timestamp = buyer_steps[0]["timestamp"]
     
     print(f"\n  [Cible] Agent: {target_agent} | t={target_timestamp}")
 
-    # 1. Rollback
+    # rollback
     rollback = Rollback(trace)
     context = rollback.extract_context(target_agent, target_timestamp)
 
-    # 2. Alternatives
+    #alternatives
     alt_gen = AlternativeGenerator()
     alternatives = alt_gen.generate(context, rollback)
 
-    # 3. Simulation Contrefactuelle
+    #simulation contrefactuelle
     cf_sim = CounterfactualSimulator()
     cf_traces = cf_sim.simulate_all(context, alternatives, rollback)
 
-    # 4. Identification des Causes
+    #identification des causes
     cause_id = CauseIdentifier()
     causes = cause_id.identify(context, cf_traces)
 
-    # 5. Génération Finale
     exp_gen = ExplanationGenerator()
     explanation = exp_gen.generate(
         context=context,
@@ -112,19 +112,16 @@ def run_phase2(trace: dict) -> tuple[dict, dict, list, dict]:
     return context, causes, cf_traces, explanation
 
 def run_phase3(trace: dict, context: dict, causes: dict, explanation: dict) -> dict:
-    # Phase 3 : Évaluation de la fidélité
-    print("  PHASE 3 : ÉVALUATION DE LA FIDÉLITÉ")
+    #evaluation de la fidélité
 
     judge = LLMJudge()
     rollback = Rollback(trace)
     exp_gen = ExplanationGenerator()
 
-    # Cohérence Interne
-    print("\n  [1/2] Test de Cohérence Interne (N=3)...")
+    # ci
     explanations_ci = judge.evaluate_consistency(context, rollback, exp_gen)
 
-    # Jugement LLM
-    print("\n  [2/2] Jugement LLM indépendant...")
+    # jugement LLM
     judge_result = judge.evaluate(
         trace=trace,
         explanation=explanation["text_explanation"],
@@ -132,7 +129,7 @@ def run_phase3(trace: dict, context: dict, causes: dict, explanation: dict) -> d
         target_timestamp=context["target_timestamp"]
     )
 
-    # Calcul des métriques
+    # calcul des métriques
     metrics = FidelityMetrics.compute_all(
         explanations_ci=explanations_ci,
         explanation=explanation["text_explanation"],
@@ -140,30 +137,23 @@ def run_phase3(trace: dict, context: dict, causes: dict, explanation: dict) -> d
         ve_score=judge_result["ve_score"]
     )
 
-    print(f"\n  [Score Global] : {metrics['global_score']}/1.0")
-    print(f"  [Interprétation] : {metrics['interpretation']}")
+    print(f"\n  [score global] : {metrics['global_score']}/1.0")
+    print(f"  [interprétation] : {metrics['interpretation']}")
 
     return metrics
 
 def main():
     try:
-        # Phase 1
         trace_path, trace = run_phase1()
 
-        # Phase 2
         context, causes, cf_traces, explanation = run_phase2(trace)
-
-        # Phase 3
         metrics = run_phase3(trace, context, causes, explanation)
 
-
-        print("  SUCCÈS : Simulation et Explication terminées")
         print(f"  ID Session : {trace['session_id']}")
         print(f"  Graphe     : outputs/graphs/graph_{trace['session_id']}.png")
-        print("="*60)
 
     except Exception as e:
-        print(f"\n  [ERREUR] Une erreur est survenue : {e}")
+        print(f"\n  [ERREUR] erreur  : {e}")
         import traceback
         traceback.print_exc()
 

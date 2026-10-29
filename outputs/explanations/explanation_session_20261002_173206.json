@@ -1,0 +1,54 @@
+{
+  "session_id": "session_20261002_173206",
+  "target_agent": "Acheteur",
+  "target_timestamp": 0,
+  "all_agents": [
+    "Mediateur",
+    "Acheteur"
+  ],
+  "real_action": "Bonjour, merci pour votre offre. Je suis très intéressé par le smartphone, mais mon budget est limité. Je peux vous proposer 600 € pour le téléphone, paiement immédiat. Est‑ce que cela pourrait vous convenir ou avez‑vous une contre‑proposition ?",
+  "question": "Pourquoi Acheteur a pris cette decision a t=0 ?",
+  "text_explanation": "L'acheteur a formulé sa proposition de 600 € dès le premier tour parce qu’il cherche à maximiser la probabilité d’obtenir le smartphone tout en respectant la contrainte budgétaire qui limite son pouvoir d’achat. Cette contrainte le pousse à présenter immédiatement une offre ferme et attractive, afin de déclencher rapidement une réponse du vendeur et d’éviter que le médiateur ne doive intervenir pour rééquilibrer la négociation. Le médiateur, présent dans le dialogue, exerce une influence passive : il signale aux parties qu’une issue consensuelle est attendue, ce qui incite l’acheteur à adopter une posture collaborative plutôt que conflictuelle. En ne proposant que le prix, l’acheteur néglige la possibilité d’ajouter de la valeur (accessoire ou service) qui aurait pu renforcer son offre sans augmenter le coût. Ainsi, l’alternative optimale – demander l’inclusion d’un accessoire dans le prix de 600 € – aurait mieux servi son objectif de maximiser la valeur perçue tout en restant dans son budget. En résumé, la contrainte budgétaire, le désir d’une réponse rapide et l’influence du médiateur ont conduit l’acheteur à choisir une offre sous‑optimale dès t = 0.",
+  "graph_path": "outputs/graphs/graph_session_20261002_173206.png",
+  "impact_score": 4.222,
+  "teleological": {
+    "summary": "La decision 'Bonjour, merci pour votre offre. Je suis très intéressé par ' etait sous-optimale — 2 alternatives auraient mieux servi l'objectif.",
+    "real_score": 5,
+    "avg_cf_score": 7.67,
+    "better_count": 2,
+    "worse_count": 0,
+    "cf_scores": [
+      10,
+      5,
+      8
+    ]
+  },
+  "mechanical": {
+    "summary": "La decision a influence differemment : Mediateur.",
+    "influenced_agents": [
+      "Mediateur"
+    ],
+    "influence_per_agent": {
+      "Mediateur": [
+        {
+          "alternative": "Demander s'il est possible d'inclure un accessoire (étui ou chargeur sans fil) dans le prix proposé de 600 €, afin d'ajouter de la valeur à l'offre.",
+          "reaction": "**  \nLe Médiateur accueille la nouvelle demande de l’Acheteur avec neutralité et reformule pour s’assurer que toutes les parties comprennent bien la requête. Il souligne que l’ajout d’un accessoire (é",
+          "cf_score": 10
+        },
+        {
+          "alternative": "Proposer un paiement en deux fois : 300 € à la commande et 300 € à la réception du téléphone, en insistant sur le paiement immédiat de la première tranche.",
+          "reaction": "**  \n*Le Médiateur prend la parole en adoptant un ton neutre et constructif.*  \n\n> **Médiateur** : « Merci, Acheteur, pour cette proposition claire et structurée. Vous proposez un paiement en deux foi",
+          "cf_score": 5
+        },
+        {
+          "alternative": "Suggérer une contre‑offre de 650 € avec la condition d'une garantie prolongée de 12 mois supplémentaire offerte par le vendeur.",
+          "reaction": "**  \nLe médiateur accueille la contre‑offre de l’Acheteur avec neutralité : il souligne que le prix proposé (650 €) est supérieur à l’offre initiale de l’Acheteur (600 €) mais inférieur au prix de ven",
+          "cf_score": 8
+        }
+      ]
+    }
+  },
+  "agents_influenced": [
+    "Mediateur"
+  ]
+}

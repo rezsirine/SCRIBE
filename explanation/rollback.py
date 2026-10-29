@@ -1,9 +1,6 @@
-
-
-# 1. Approche : State Backtracking
+#State Backtracking
 class Rollback:
-   
-    # Extrait le contexte C(t0) pour l'analyse contrefactuelle.
+#extrait le contexte C(t0) pour l'analyse contrefactuelle
     
     def __init__(self, trace: dict):
         self.trace = trace

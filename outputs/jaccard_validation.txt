@@ -1,0 +1,11 @@
+Jaccard Threshold Validation
+Total pairs : 13
+Range       : [0.150, 0.284]
+Mean        : 0.205
+
+Threshold analysis:
+  0.25 → 12/13 pairs flagged
+  0.28 → 12/13 pairs flagged
+  0.30 → 13/13 pairs flagged
+  0.40 → 13/13 pairs flagged
+  0.50 → 13/13 pairs flagged

@@ -1,0 +1,5 @@
+Jaccard Selectivity Test Report
+Target: Vendeur @ t=0
+SCRIBE influenced: ['Mediateur']
+------------------------------------------------------------
+Mediateur            Jaccard=0.19  INFLUENCED

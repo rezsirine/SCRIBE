@@ -1,0 +1,114 @@
+{
+  "session_id": "session_20261029_193416",
+  "target_agent": "Acheteur",
+  "target_timestamp": 0,
+  "all_agents": [
+    "Expert",
+    "Observateur",
+    "Mediateur",
+    "Acheteur",
+    "Concurrent"
+  ],
+  "real_action": "Bonjour, merci pour votre offre. Le prix de 1000 € dépasse largement mon budget. Je suis prêt à acheter le smartphone immédiatement pour 600 €, et je peux aller jusqu'à 800 € si vous pouvez me garantir les spécifications standards (écran 6,5\", 128 Go, 5G, garantie constructeur). Qu'en pensez‑vous ?",
+  "question": "Pourquoi Acheteur a pris cette decision a t=0 ?",
+  "text_explanation": "L’acheteur a d’abord évalué le prix proposé (1000 €) à la lumière de son budget limité ; la différence de 400 € crée une contrainte financière qui rend l’offre initiale inacceptable, ce qui déclenche immédiatement la recherche d’une solution plus compatible avec son objectif de coût.  \nEn même temps, l’expert a rappelé les spécifications minimales indispensables (écran 6,5 \", 128 Go, 5G, garantie constructeur), ce qui a renforcé la volonté de l’acheteur de ne pas sacrifier la qualité tout en négociant le prix.  \nL’observateur, en notant la dynamique du marché et la sensibilité du vendeur aux ventes rapides, a incité l’acheteur à proposer un paiement immédiat, sachant que cela augmente son pouvoir de négociation.  \nLe médiateur a suggéré de formuler une fourchette (600 €–800 €) afin de laisser de la marge de manœuvre au vendeur, tandis que le concurrent a signalé qu’une offre plus basse pourrait pousser le vendeur à accepter rapidement pour éviter de perdre la vente.  \nAinsi, la décision de l’acheteur de présenter une offre de 600 € avec une extension possible à 800 € découle d’une combinaison de contraintes budgétaires, de exigences techniques, de pressions de temps et d’influences stratégiques exercées par les autres agents.",
+  "graph_path": "outputs/graphs/graph_session_20261029_193416.png",
+  "impact_score": 0.0,
+  "teleological": {
+    "summary": "La decision 'Bonjour, merci pour votre offre. Le prix de 1000 € dépasse l' etait equivalente aux alternatives en termes d'objectifs.",
+    "real_score": 5,
+    "avg_cf_score": 5.0,
+    "better_count": 0,
+    "worse_count": 0,
+    "cf_scores": [
+      5,
+      5,
+      5
+    ]
+  },
+  "mechanical": {
+    "summary": "La decision a influence differemment : Expert, Observateur, Mediateur, Concurrent.",
+    "influenced_agents": [
+      "Expert",
+      "Observateur",
+      "Mediateur",
+      "Concurrent"
+    ],
+    "influence_per_agent": {
+      "Expert": [
+        {
+          "alternative": "Demander une remise supplémentaire en échange d'un paiement immédiat par virement bancaire, par exemple proposer 650 € payable dès maintenant.",
+          "reaction": "**  \n*L’Expert (spécialiste du marché des smartphones) répond :*  \n« Votre proposition de 650 € contre paiement immédiat est nettement inférieure au prix moyen du modèle (environ 950 € en boutique). U",
+          "cf_score": 5
+        },
+        {
+          "alternative": "Suggérer d'inclure des accessoires (coque, chargeur rapide) dans le prix de 800 €, afin d'augmenter la valeur perçue sans augmenter le prix de base du smartphone.",
+          "reaction": "**  \nL’Expert répond : « Inclure une coque et un chargeur rapide dans le pack à 800 € est tout à fait faisable ; le coût moyen de ces accessoires sur le marché est d’environ 70 € (coque ≈ 30 €, charge",
+          "cf_score": 5
+        },
+        {
+          "alternative": "Proposer un paiement échelonné (par exemple 400 € maintenant et 400 € dans un mois) tout en maintenant le prix total à 800 €, afin de réduire la pression financière immédiate.",
+          "reaction": "**  \nL’Expert analyse la proposition sous l’angle technique et commercial :  \n- « Le smartphone que vous ciblez est actuellement vendu 1 000 € en boutique, mais le prix de 800 € en paiement échelonné ",
+          "cf_score": 5
+        }
+      ],
+      "Observateur": [
+        {
+          "alternative": "Demander une remise supplémentaire en échange d'un paiement immédiat par virement bancaire, par exemple proposer 650 € payable dès maintenant.",
+          "reaction": "**  \n*L’Observateur (neutre, analyse la dynamique) commente :*  \n« On remarque que l’Acheteur utilise le levier du paiement immédiat pour pousser la remise. Le ton reste cordial, mais la demande repré",
+          "cf_score": 5
+        },
+        {
+          "alternative": "Suggérer d'inclure des accessoires (coque, chargeur rapide) dans le prix de 800 €, afin d'augmenter la valeur perçue sans augmenter le prix de base du smartphone.",
+          "reaction": "**  \nL’Observateur note : « Le ton du Acheteur passe d’une demande de remise pure à une proposition de valeur ajoutée. Cette stratégie vise à augmenter la perception de l’offre sans augmenter le prix ",
+          "cf_score": 5
+        },
+        {
+          "alternative": "Proposer un paiement échelonné (par exemple 400 € maintenant et 400 € dans un mois) tout en maintenant le prix total à 800 €, afin de réduire la pression financière immédiate.",
+          "reaction": "**  \nL’Observateur commente la dynamique de la négociation :  \n- « On remarque que l’Acheteur cherche à alléger la pression financière immédiate en fractionnant le paiement, ce qui peut créer un senti",
+          "cf_score": 5
+        }
+      ],
+      "Mediateur": [
+        {
+          "alternative": "Demander une remise supplémentaire en échange d'un paiement immédiat par virement bancaire, par exemple proposer 650 € payable dès maintenant.",
+          "reaction": "**  \n*Le Médiateur intervient pour garder le dialogue constructif :*  \n« Merci à tous pour vos points. Acheteur, votre offre de 650 € est claire, mais elle semble trop éloignée du prix de référence. V",
+          "cf_score": 5
+        },
+        {
+          "alternative": "Suggérer d'inclure des accessoires (coque, chargeur rapide) dans le prix de 800 €, afin d'augmenter la valeur perçue sans augmenter le prix de base du smartphone.",
+          "reaction": "**  \nLe Médiateur intervient : « C’est une excellente idée de créer un package. Pour que cela convienne à toutes les parties, je propose de préciser quels modèles de coque et quel type de chargeur (18",
+          "cf_score": 5
+        },
+        {
+          "alternative": "Proposer un paiement échelonné (par exemple 400 € maintenant et 400 € dans un mois) tout en maintenant le prix total à 800 €, afin de réduire la pression financière immédiate.",
+          "reaction": "**  \nLe Médiateur intervient pour structurer le dialogue :  \n- « Merci pour cette proposition, Acheteur. Pour que nous puissions avancer, je suggère de formaliser le plan de paiement : 400 € à la sign",
+          "cf_score": 5
+        }
+      ],
+      "Concurrent": [
+        {
+          "alternative": "Demander une remise supplémentaire en échange d'un paiement immédiat par virement bancaire, par exemple proposer 650 € payable dès maintenant.",
+          "reaction": "**  \n*Le Concurrent (un autre acheteur potentiel présent dans la négociation) réagit :*  \n« De mon côté, je suis prêt à offrir 750 € pour le même smartphone, paiement immédiat également, mais je ne de",
+          "cf_score": 5
+        },
+        {
+          "alternative": "Suggérer d'inclure des accessoires (coque, chargeur rapide) dans le prix de 800 €, afin d'augmenter la valeur perçue sans augmenter le prix de base du smartphone.",
+          "reaction": "**  \nLe Concurrent, qui représente un autre revendeur, réagit : « De notre côté, nous proposons le même smartphone à 790 € + une paire d’écouteurs sans fil d’une valeur de 50 €. Cela montre qu’il exis",
+          "cf_score": 5
+        },
+        {
+          "alternative": "Proposer un paiement échelonné (par exemple 400 € maintenant et 400 € dans un mois) tout en maintenant le prix total à 800 €, afin de réduire la pression financière immédiate.",
+          "reaction": "**  \nLe Concurrent, représentant un autre fournisseur, répond :  \n- « Nous avons un modèle équivalent à 780 € en paiement unique, mais nous pouvons également proposer un échelonnement 390 € maintenant",
+          "cf_score": 5
+        }
+      ]
+    }
+  },
+  "agents_influenced": [
+    "Expert",
+    "Observateur",
+    "Mediateur",
+    "Concurrent"
+  ]
+}

@@ -1,9 +1,4 @@
-
-#Approche : Metrics Analytics
-#   CI = Coherence Interne
-#   VE = Veracite Externe (juge LLM)
-#   CO = Completude
-#   ST = Stabilite
+#   CI , VE ,CO,ST 
 
 import re
 
@@ -13,9 +8,8 @@ class FidelityMetrics:
     @staticmethod
     def compute_ci(explanations: list) -> float:
       
-        # Coherence Interne : similarite entre N explications
-        # generees pour la meme question.
-        # Score entre 0 (incoherent) et 1 (stable)
+        # coherence interne : similarite entre N explications
+        # score entre 0  et 1 
 
         if len(explanations) < 2:
             return 1.0
@@ -35,7 +29,6 @@ class FidelityMetrics:
 
     @staticmethod
     def compute_co(explanation: str, causes: dict) -> float:
-        # Completude : l'explication couvre-t-elle les causes cles ?
         key_elements = []
         tele = causes.get("teleological", {})
         mech = causes.get("mechanical", {})
@@ -72,10 +65,9 @@ class FidelityMetrics:
             "interpretation": FidelityMetrics._interpret(global_score),
         }
 
-        print(f"\n  METRIQUES DE FIDELITE :")
-        print(f"    CI (Coherence Interne) : {ci}")
-        print(f"    VE (Veracite Externe)  : {round(ve_score, 3)}")
-        print(f"    CO (Completude)        : {co}")
+        print(f"    CI  : {ci}")
+        print(f"    VE   : {round(ve_score, 3)}")
+        print(f"    CO   : {co}")
         print(f"    Score global           : {global_score}")
         print(f"    Interpretation         : {report['interpretation']}")
 

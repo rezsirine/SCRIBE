@@ -1,13 +1,13 @@
-
-# 5. Generation de l'explication multi-format.
-#    Texte en langage naturel
-#    Graphe d'influences entre N agents
-#    Score d'impact contrefactuel
+#generation de l'explication multi-format
+#texte en langage naturel
+#graphe d'influences entre N agents
+#score d'impact contrefactuel
 
 import os
 import json
 from groq import Groq
 from config import GROQ_API_KEY, GROQ_MODEL, OUTPUT_EXPLANATIONS
+from groq_retry import groq_call_with_retry
 
 try:
     import networkx as nx
@@ -17,15 +17,9 @@ try:
     HAS_NETWORKX = True
 except ImportError:
     HAS_NETWORKX = False
-    print("  NetworkX non installe graphe desactive")
 
 
 class ExplanationGenerator:
-  
-    # Genere l'explication finale sous 3 formats :
-    # 1. Texte langage naturel (CEMA-style)
-    # 2. Graphe d'influences entre N agents
-    # 3. Score d'impact contrefactuel
 
     def __init__(self):
         self.client     = Groq(api_key=GROQ_API_KEY)
@@ -34,7 +28,7 @@ class ExplanationGenerator:
 
     def generate(self, context: dict, causes: dict,
                  cf_traces: list, session_id: str) -> dict:
-        #Genere l'explication complete multi-format
+#genere l'explication complete multi-format
         print("  Generation de l'explication finale")
 
         text  = self._generate_text(context, causes, cf_traces)
@@ -57,8 +51,6 @@ class ExplanationGenerator:
             "mechanical"        : causes["mechanical"],
             "agents_influenced" : causes["agents_influenced"],
         }
-
-        # Sauvegarder
         path = os.path.join(OUTPUT_EXPLANATIONS,
                             f"explanation_{session_id}.json")
         with open(path, "w", encoding="utf-8") as f:
@@ -73,7 +65,7 @@ class ExplanationGenerator:
 
     def _generate_text(self, context: dict, causes: dict,
                        cf_traces: list) -> str:
-        # Genere l'explication en langage naturel 
+#genere l'explication en langage naturel 
         best_cf      = causes.get("best_cf", {})
         tele         = causes["teleological"]
         mech         = causes["mechanical"]
@@ -100,7 +92,8 @@ a t={context['target_timestamp']} dans cette negociation multi-agents ?
 Commence directement par l'explication causale.
 Mentionne l'influence sur les autres agents.
 """
-        response = self.client.chat.completions.create(
+        response = groq_call_with_retry(
+            self.client.chat.completions.create,
             model      = self.model_name,
             messages   = [
                 {"role": "system",
@@ -114,9 +107,6 @@ Mentionne l'influence sur les autres agents.
 
     def _generate_graph(self, context: dict, causes: dict,
                         session_id: str) -> str:
-        # Genere le graphe d'influences entre N agents
-        # Noeud rouge = agent explique, bleu = autres agents
-        # Arc = influence detectee
         if not HAS_NETWORKX:
             return "NetworkX non installe"
 
@@ -128,32 +118,30 @@ Mentionne l'influence sur les autres agents.
         influenced  = causes["agents_influenced"]
         score       = causes["impact_score"]
 
-        # Ajouter les noeuds
+#ajouter les noeuds
         for agent in all_agents:
             G.add_node(agent)
 
-        # Ajouter les arcs d'influence
+#ajouter les arcs d'influence
         mech = causes["mechanical"]
         for agent in all_agents:
             if agent != target:
-                # Arc target : agent si influence detectee
+#arc target:agent si influence detectee
                 if agent in influenced:
                     weight = max(1.0, min(4.0, 1.0 + score * 2))
                     G.add_edge(target, agent,
                                weight=weight,
                                influenced=True)
                 else:
-                    # Arc leger pour montrer l'interaction meme sans influence
+                   #arc leger pour montrer l'interaction meme sans influence
                     G.add_edge(target, agent,
                                weight=0.5,
                                influenced=False)
 
-        # Dessin
         plt.figure(figsize=(9, 7))
         seed = abs(hash(session_id)) % 9999
         pos  = nx.spring_layout(G, seed=seed, k=2.0)
 
-        # Couleurs noeuds
         node_colors = [
             "#e74c3c" if n == target else "#3498db"
             for n in G.nodes()
@@ -163,7 +151,6 @@ Mentionne l'influence sur les autres agents.
         nx.draw_networkx_labels(G, pos, font_size=11,
                                 font_weight="bold", font_color="white")
 
-        # Arcs : epais si influence, fin 
         edges_strong = [(u, v) for u, v, d in G.edges(data=True)
                         if d.get("influenced", False)]
         edges_weak   = [(u, v) for u, v, d in G.edges(data=True)
@@ -182,7 +169,6 @@ Mentionne l'influence sur les autres agents.
                                    edge_color="#95a5a6",
                                    style="dashed", alpha=0.6)
 
-        # Legende
         from matplotlib.patches import Patch
         from matplotlib.lines import Line2D
         legend = [

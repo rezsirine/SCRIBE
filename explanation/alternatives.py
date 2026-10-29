@@ -1,15 +1,12 @@
-
-
-#2.Approche : Alternative Generation
+#génère des actions alternatives pour l'agent cible
 import json
 import re
 from groq import Groq
 from config import GROQ_API_KEY, GROQ_MODEL, TEMPERATURE, K_ALTERNATIVES
+from groq_retry import groq_call_with_retry
 
 class AlternativeGenerator:
-   
-    #  Génère des actions alternatives pour l'agent cible
-    
+
     def __init__(self):
         self.client = Groq(api_key=GROQ_API_KEY)
         self.model_name = GROQ_MODEL
@@ -34,7 +31,8 @@ Reponds UNIQUEMENT au format JSON :
   ]
 }}
 """
-        response = self.client.chat.completions.create(
+        response = groq_call_with_retry(
+            self.client.chat.completions.create,
             model=self.model_name,
             messages=[{"role": "system", "content": "Tu es un assistant qui genere du JSON."},
                       {"role": "user", "content": prompt}],

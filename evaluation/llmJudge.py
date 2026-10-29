@@ -1,26 +1,21 @@
-# Approche : LLM-as-a-Judge (4eme agent non participant)
-# Evalue la fidelite de l'explication par rapport a la trace reelle
-# Inspire de Papageorgiou et al. (2025)
-
-
+#LLM-as-a-Judge (agent non participant) qui evalue la fidelite de l'explication par rapport a la trace reelle
 import re
 from groq import Groq
-from config import GROQ_API_KEY, GROQ_MODEL, N_CONSISTENCY
+from config import GROQ_API_KEY, GROQ_JUDGE_MODEL, N_CONSISTENCY
+from groq_retry import groq_call_with_retry
 
 
 class LLMJudge:
 
     def __init__(self):
         self.client     = Groq(api_key=GROQ_API_KEY)
-        self.model_name = GROQ_MODEL
+        self.model_name = GROQ_JUDGE_MODEL   #different model from agent 
 
     def evaluate(self, trace: dict, explanation: str,
                  target_agent: str, target_timestamp: int) -> dict:
       
-        # Evalue la fidelite de l'explication par rapport a la trace reelle
-        # Le juge n'a pas participe a la simulation
+        # le juge n'a pas participe a la simulation
 
-        # Extraire les pas pertinents (±2 autour de la decision)
         relevant = [
             s for s in trace["steps"]
             if abs(s["timestamp"] - target_timestamp) <= 2
@@ -33,8 +28,8 @@ class LLMJudge:
         all_agents = ", ".join(trace.get("agents", []))
 
         prompt = f"""
-Tu es un evaluateur XAI independant.
-Tu n'as PAS participe a la negociation.
+Tu es un evaluateur XAI independant
+Tu n'as PAS participe a la negociation
 Les agents presents etaient : {all_agents}
 
  EXTRAIT TRACE REELLE (autour de t={target_timestamp}) 
@@ -52,7 +47,8 @@ CONTREDIT: elements manquants ou contradictoires
 SCORE: nombre de 0 a 10
 JUSTIFICATION: une phrase de synthese
 """
-        response = self.client.chat.completions.create(
+        response = groq_call_with_retry(
+            self.client.chat.completions.create,
             model      = self.model_name,
             messages   = [
                 {"role": "system",
@@ -90,9 +86,9 @@ JUSTIFICATION: une phrase de synthese
                              rollback_obj,
                              exp_gen) -> list:
 
-        # Genere N_CONSISTENCY explications independantes
         # pour mesurer la coherence interne
 
+        import time
         print(f"\n  [CI] {N_CONSISTENCY} repetitions...")
         explanations = []
 
@@ -107,6 +103,8 @@ JUSTIFICATION: une phrase de synthese
             text   = exp_gen._generate_text(context, causes, cfs)
             explanations.append(text)
             print(f"    Repetition {i+1}/{N_CONSISTENCY} OK")
+            if i < N_CONSISTENCY - 1:
+                time.sleep(15)  
 
         return explanations
 

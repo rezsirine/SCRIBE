@@ -1,0 +1,21 @@
+{
+  "session_id": "session_20261002_174402",
+  "baseline": "textual",
+  "target_agent": "Acheteur",
+  "target_timestamp": 0,
+  "all_agents": [
+    "Acheteur",
+    "Mediateur"
+  ],
+  "real_action": "Bonjour, merci pour l'annonce. Le smartphone m'intéresse, mais mon budget est limité. Je peux proposer 600 € pour le moment.",
+  "text_explanation": "Acheteur a exprimé son intérêt pour le smartphone dès le début, ce montre qu’il a déjà évalué le produit comme correspondant à ses besoins. En même temps, il a indiqué que son budget est limité, ce qui signale une contrainte financière qui doit être prise en compte dans la négociation. La combinaison de l’intérêt pour le bien et de la contrainte budgétaire l’a conduit à formuler une offre explicite de 600 €, afin de tester la flexibilité du vendeur. Cette offre sert également de point de départ pour la discussion, en laissant la possibilité au vendeur de contre‑proposer ou d’accepter. Enfin, en mentionnant « pour le moment », Acheteur laisse entendre qu’il pourrait réviser son offre si les conditions le permettent, ce qui renforce la stratégie de négociation ouverte.",
+  "graph_path": null,
+  "impact_score": 0.0,
+  "teleological": {
+    "summary": "No counterfactual analysis performed (textual baseline)."
+  },
+  "mechanical": {
+    "summary": "No mechanical analysis performed (textual baseline)."
+  },
+  "agents_influenced": []
+}
